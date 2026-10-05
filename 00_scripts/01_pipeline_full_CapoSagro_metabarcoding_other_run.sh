@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=CapoSagro
+#SBATCH --job-name=CapoSagro_other
 #SBATCH --ntasks=1
 #SBATCH -p smp
 #SBATCH --cpus-per-task=36
 #SBATCH --mem=1000G
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL
-#SBATCH --error=/home/plstenge/CapoSagro_metabarcoding/00_scripts/01_pipeline_full_CapoSagro_metabarcoding.err
-#SBATCH --output=/home/plstenge/CapoSagro_metabarcoding/00_scripts/01_pipeline_full_CapoSagro_metabarcoding.out
+#SBATCH --error=/home/plstenge/CapoSagro_metabarcoding/00_scripts/01_pipeline_full_CapoSagro_metabarcoding_other_run.err
+#SBATCH --output=/home/plstenge/CapoSagro_metabarcoding/00_scripts/01_pipeline_full_CapoSagro_metabarcoding_other_run.out
 
 # ==============================================================================
 # ENVIRONMENT SETUP
