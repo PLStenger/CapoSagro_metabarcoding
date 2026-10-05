@@ -82,8 +82,22 @@ MAXACCEPTS=10
 RBCL_GROUPS=(Streptophyta Chlorophyta Rhodophyta Phaeophyceae Bacillariophyta)
 
 mkdir -p "$PROJECTDIR/00_scripts" "$TAXODIR_GLOBAL" "$RAWDB" "$REFDB" \
-         "$WORKDIR"/{taxonomy,logs,tmp,exports,decontam}
-export TMPDIR="$WORKDIR/tmp"
+         "$WORKDIR"/{taxonomy,logs,exports,decontam}
+
+# IMPORTANT : temporaires courts et locaux au nœud.
+# Ne pas employer $WORKDIR/tmp : chemin trop long + FS partagé/NFS.
+export TMPDIR="/tmp/${USER}_q2"
+export TEMP="$TMPDIR"
+export TMP="$TMPDIR"
+mkdir -p "$TMPDIR"
+chmod 700 "$TMPDIR"
+
+echo "TMPDIR=${TMPDIR}"
+python - <<'PY'
+import tempfile
+print("Python temporary directory:", tempfile.gettempdir())
+PY
+
 LOG="$WORKDIR/logs"
 cd "$WORKDIR" || exit 1
 
